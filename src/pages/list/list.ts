@@ -1,14 +1,7 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, ModalController } from "ionic-angular";
+import { IonicPage, ModalController } from "ionic-angular";
 import { ItemProvider } from "../../providers/item/item";
 import { UpdatePage } from "../update/update";
-
-/**
- * Generated class for the ListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -17,10 +10,9 @@ import { UpdatePage } from "../update/update";
 })
 export class ListPage {
   items: ItemModel[] = [];
-  private startingIndex: number = 0;
+  
   constructor(
     private itemProvider: ItemProvider,
-    private navCtrl: NavController,
     private modelCtrl: ModalController
   ) {
     console.log("constructor : ListPage");

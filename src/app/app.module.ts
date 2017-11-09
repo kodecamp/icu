@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
+import { FormsModule } from "@angular/forms";
 
 import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
@@ -13,7 +14,7 @@ import { ItemProvider } from "../providers/item/item";
 
 @NgModule({
   declarations: [MyApp, HomePage, ListPage, UpdatePage, AddPage],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [BrowserModule, FormsModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, ListPage, UpdatePage, AddPage],
   providers: [

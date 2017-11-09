@@ -1,13 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { NgForm } from "@angular/forms";
+import { NgForm, FormsModule } from "@angular/forms";
 
-/**
- * Generated class for the UpdatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,25 +9,36 @@ import { NgForm } from "@angular/forms";
   templateUrl: "update.html"
 })
 export class UpdatePage {
-  @ViewChild("form") ngForm: any;
 
-  private title: string;
+
+  private pageTitle: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log("constructor : UpdatePage");
 
     console.log("navParam : " + this.navParams.data.item.id);
-    this.title = this.navParams.data.item.title;
+    this.pageTitle = this.navParams.data.item.title;
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad UpdatePage");
+
   }
 
   close() {
     this.navCtrl.pop();
   }
 
-  edit() {
-    console.dir(this.ngForm.nativeElement);
+  edit(form:NgForm) {
+    console.dir(form.valid);
+    const message: string = form.valid ? this.updateItem("id of the item") : "error occred while updating item";
+    console.log(`message : `,message);
   }
+
+  private updateItem(id:string): string {
+    console.log('updating form...');
+    return "Record Updated successfully.";
+  }
+
 }
+
