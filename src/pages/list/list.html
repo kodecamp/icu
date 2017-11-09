@@ -1,0 +1,42 @@
+<!--
+  Generated template for the ListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header #header>
+  <ion-navbar>
+    <ion-title>list</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list no-lines>
+
+    <ion-list-header>
+      Items
+    </ion-list-header>
+    <!-- <ion-item *ngFor="let item of items; let i = index" (click)="selectItem(item,i)">
+      <div>{{i}} {{item.title}} | {{item.desc}} | {{item.price}}</div>
+
+    </ion-item> -->
+    <ion-item-sliding *ngFor="let item of items; let i = index" #itemCmpt>
+      <ion-item>
+        {{ item.id}} | {{item.title}} | {{item.desc}} | {{item.price}}
+      </ion-item>
+      <ion-item-options side="left">
+
+        <button ion-button color="danger" (click)="delete(item)">Delte</button>
+      </ion-item-options>
+
+      <ion-item-options side="right">
+        <button ion-button (click)="edit(item)" color="secondary">Edit</button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="moreItems($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
